@@ -14,10 +14,9 @@ if not st.session_state.api_key:
     # api_key = os.getenv("OPENAI_API_KEY")
     api_key = st.text_input("OpenAI API Key", type="password")
     st.session_state.api_key = api_key
-client = OpenAI(api_key=st.session_state.api_key)
 
 # Create OpenAI client
-client = OpenAI(api_key=api_key)
+client = OpenAI(api_key=st.session_state.api_key)
 
 if "recipe_card" not in st.session_state:
     st.session_state.recipe_card = ""
