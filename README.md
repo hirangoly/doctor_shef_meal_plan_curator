@@ -3,6 +3,7 @@
 Doctor Shef is a Python-based application designed to generate personalized meal plans based on individual health reports. By analyzing health metrics, the application curates dietary recommendations tailored to specific health needs.
 
 
+
 **Features**
 
 **Health Report Analysis:** Parses user health reports to extract relevant health metrics and summarize health
@@ -12,6 +13,7 @@ Doctor Shef is a Python-based application designed to generate personalized meal
 **Personalized Fitness Plan:** Generates meal plans aligned with the user's health summary and personalization.
 
 **User-Friendly Interface:** Provides an intuitive interface for users to input data and receive recommendations.
+
 
 
 **Getting Started**
@@ -37,6 +39,7 @@ cd doctor_shef_meal_plan_curator
 pip install -r requirements.txt
 
 
+
 **Usage**
 
 **Run the application:**
@@ -44,8 +47,10 @@ pip install -r requirements.txt
 python home.py
 
 
+
 **Contributing**
 Contributions are welcome! Please fork the repository and submit a pull request with your enhancements.
+
 
 **License**
 This project is licensed under the MIT License.
