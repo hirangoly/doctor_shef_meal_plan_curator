@@ -1,0 +1,6 @@
+openai>=1.0.0
+streamlit
+python-dotenv
+PyMuPDF
+fpdf
+streamlit-extras
