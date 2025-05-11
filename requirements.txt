@@ -7,3 +7,4 @@ streamlit-extras
 langchain
 langchain-openai
 langchain-community
+faiss-cpu
