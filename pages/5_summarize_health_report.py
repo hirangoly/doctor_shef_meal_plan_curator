@@ -108,7 +108,7 @@ Do not fabricate or infer values. Only extract exact values mentioned in the rep
 """
 
     # Set up RetrievalQA chain
-    llm = ChatOpenAI(model="gpt-4", openai_api_key=ChatOpenAI)
+    llm = ChatOpenAI(model="gpt-4", openai_api_key=st.session_state.api_key)
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         retriever=vectorstore.as_retriever(search_kwargs={"k": 5}),
@@ -128,7 +128,7 @@ def text_into_vector(raw_text):
     chunks = splitter.split_text(raw_text)
 
     # Vectorize chunks
-    embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+    embeddings = OpenAIEmbeddings(openai_api_key=st.session_state.api_key)
     vectorstore = FAISS.from_texts(chunks, embedding=embeddings)
 
     return vectorstore
