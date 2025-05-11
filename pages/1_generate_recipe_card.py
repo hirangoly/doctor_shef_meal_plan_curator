@@ -17,7 +17,6 @@ if not st.session_state.api_key:
 
 if not st.session_state.api_key:
     # st.error("API key not found. Make sure OPENAI_API_KEY is set in your .env file.")
-    st.info("Please add your OpenAI API key to continue.", icon="🗝️")
     st.error("Please add your OpenAI API key to continue.", icon="🗝️")
     st.stop()
 

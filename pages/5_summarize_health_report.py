@@ -22,7 +22,6 @@ if not st.session_state.api_key:
 
 if not st.session_state.api_key:
     # st.error("API key not found. Make sure OPENAI_API_KEY is set in your .env file.")
-    st.info("Please add your OpenAI API key to continue.", icon="🗝️")
     st.error("Please add your OpenAI API key to continue.", icon="🗝️")
     st.stop()
 
@@ -39,7 +38,7 @@ def summarize_report(report_summary):
     {report_summary}
     """
 
-  llm = ChatOpenAI(model="gpt-4", openai_api_key=api_key)
+  llm = ChatOpenAI(model="gpt-4", openai_api_key=st.session_state.api_key)
   response = llm.invoke(prompt)
   st.session_state.report_summary = response.content
 
@@ -109,7 +108,7 @@ Do not fabricate or infer values. Only extract exact values mentioned in the rep
 """
 
     # Set up RetrievalQA chain
-    llm = ChatOpenAI(model="gpt-4", openai_api_key=api_key)
+    llm = ChatOpenAI(model="gpt-4", openai_api_key=ChatOpenAI)
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         retriever=vectorstore.as_retriever(search_kwargs={"k": 5}),
