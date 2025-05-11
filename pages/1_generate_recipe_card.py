@@ -88,10 +88,10 @@ if st.session_state.recipe_card:
     )
 
     # Download as PDF
-    pdf_buffer = generate_pdf(st.session_state.recipe_card)
-    st.download_button(
-        label="📄 Download Recipe card (PDF)",
-        data=pdf_buffer,
-        file_name="recipe_card_{recipe_name}.pdf",
-        mime="application/pdf"
-    )
+    # pdf_buffer = generate_pdf(st.session_state.recipe_card)
+    # st.download_button(
+    #     label="📄 Download Recipe card (PDF)",
+    #     data=pdf_buffer,
+    #     file_name="recipe_card_{recipe_name}.pdf",
+    #     mime="application/pdf"
+    # )
