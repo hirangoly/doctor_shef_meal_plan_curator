@@ -23,12 +23,13 @@ def generate_pdf(text: str) -> bytes:
     pdf_output = pdf.output(dest='S').encode('latin1')  # returns PDF as string, encode to bytes
     return io.BytesIO(pdf_output)
 
-# Load OpenAI API key
-load_dotenv()
-# api_key = os.getenv("OPENAI_API_KEY")
-api_key = st.text_input("OpenAI API Key", type="password")
-st.session_state.api_key = api_key
-client = OpenAI(api_key=api_key)
+if not st.session_state.api_key:
+    # Load OpenAI API key
+    load_dotenv()
+    # api_key = os.getenv("OPENAI_API_KEY")
+    api_key = st.text_input("OpenAI API Key", type="password")
+    st.session_state.api_key = api_key
+client = OpenAI(api_key=st.session_state.api_key)
 
 if not st.session_state.api_key:
     # st.error("API key not found. Make sure OPENAI_API_KEY is set in your .env file.")

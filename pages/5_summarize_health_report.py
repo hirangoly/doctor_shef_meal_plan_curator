@@ -13,11 +13,13 @@ from dotenv import load_dotenv
 if "api_key" not in st.session_state:
     st.session_state.api_key = ""
 
-load_dotenv()
-# api_key = os.getenv("OPENAI_API_KEY")
-api_key = st.text_input("OpenAI API Key", type="password")
-st.session_state.api_key = api_key
-client = OpenAI(api_key=api_key)
+if not st.session_state.api_key:
+    # Load OpenAI API key
+    load_dotenv()
+    # api_key = os.getenv("OPENAI_API_KEY")
+    api_key = st.text_input("OpenAI API Key", type="password")
+    st.session_state.api_key = api_key
+client = OpenAI(api_key=st.session_state.api_key)
 
 # Store state
 if "report_summary" not in st.session_state:
