@@ -6,10 +6,21 @@ from dotenv import load_dotenv
 from fpdf import FPDF
 import io
 
+# Store api key
+if "api_key" not in st.session_state:
+    st.session_state.api_key = ""
+
 # Load OpenAI API key
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+# api_key = os.getenv("OPENAI_API_KEY")
+api_key = st.text_input("OpenAI API Key", type="password")
+st.session_state.api_key = api_key
 client = OpenAI(api_key=api_key)
+
+if not st.session_state.api_key:
+    # st.error("API key not found. Make sure OPENAI_API_KEY is set in your .env file.")
+    st.error("Please add your OpenAI API key to continue.", icon="🗝️")
+    st.stop()
 
 # st.set_page_config(page_title="Health Summary", layout="wide")
 st.title("🩺 Health Status Summary ")

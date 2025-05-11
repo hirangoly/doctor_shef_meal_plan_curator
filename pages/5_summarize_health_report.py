@@ -9,8 +9,14 @@ from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
 
+# Store api key
+if "api_key" not in st.session_state:
+    st.session_state.api_key = ""
+
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+# api_key = os.getenv("OPENAI_API_KEY")
+api_key = st.text_input("OpenAI API Key", type="password")
+st.session_state.api_key = api_key
 client = OpenAI(api_key=api_key)
 
 # Store state
