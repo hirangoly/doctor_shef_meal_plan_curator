@@ -2,7 +2,7 @@ import os
 import fitz  # PyMuPDF
 import streamlit as st
 from openai import OpenAI
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI
