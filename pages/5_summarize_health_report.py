@@ -19,7 +19,12 @@ if not st.session_state.api_key:
     # api_key = os.getenv("OPENAI_API_KEY")
     api_key = st.text_input("OpenAI API Key", type="password")
     st.session_state.api_key = api_key
-client = OpenAI(api_key=st.session_state.api_key)
+
+if not st.session_state.api_key:
+    # st.error("API key not found. Make sure OPENAI_API_KEY is set in your .env file.")
+    st.info("Please add your OpenAI API key to continue.", icon="🗝️")
+    st.error("Please add your OpenAI API key to continue.", icon="🗝️")
+    st.stop()
 
 # Store state
 if "report_summary" not in st.session_state:
@@ -50,7 +55,7 @@ def ask_metric(qa_chain, retriever, question):
     return response["result"]
 
 def summarize_health(vectorstore):
-    llm = ChatOpenAI(model="gpt-4", openai_api_key=api_key)
+    llm = ChatOpenAI(model="gpt-4", openai_api_key=st.session_state.api_key)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
     qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
