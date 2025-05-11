@@ -6,18 +6,13 @@ from fpdf import FPDF
 
 # Load .env file
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+# api_key = os.getenv("OPENAI_API_KEY")
 api_key = st.text_input("OpenAI API Key", type="password")
 
 if not api_key:
     # st.error("API key not found. Make sure OPENAI_API_KEY is set in your .env file.")
     st.error("Please add your OpenAI API key to continue.", icon="🗝️")
     st.stop()
-
-api_key = st.text_input("OpenAI API Key", type="password")
-if not api_key:
-    st.info("Please add your OpenAI API key to continue.", icon="🗝️")
-
 
 # Create OpenAI client
 client = OpenAI(api_key=api_key)
