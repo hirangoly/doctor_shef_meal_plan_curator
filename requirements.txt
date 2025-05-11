@@ -5,3 +5,4 @@ PyMuPDF
 fpdf
 streamlit-extras
 langchain
+langchain-openai

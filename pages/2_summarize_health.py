@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 from openai import OpenAI
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from fpdf import FPDF
 import io
