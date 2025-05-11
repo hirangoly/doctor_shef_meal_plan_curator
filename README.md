@@ -18,16 +18,22 @@ Installation
 Clone the repository:
 
 bash
+Copy
+Edit
 git clone https://github.com/hirangoly/doctor_shef_meal_plan_curator.git
 cd doctor_shef_meal_plan_curator
 Install dependencies:
 
 bash
+Copy
+Edit
 pip install -r requirements.txt
 Usage
 Run the application:
 
 bash
+Copy
+Edit
 python home.py
 Input Health Data: Follow the prompts to input your health metrics.
 
@@ -39,6 +45,8 @@ home.py: Main application script.
 requirements.txt: Lists all Python dependencies.
 
 pages/: Contains additional modules and resources.
+
+.devcontainer/: Configuration for development containers.
 
 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your enhancements.
